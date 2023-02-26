@@ -6,6 +6,12 @@
 #include <cstdlib>
 #include "const.h"
 
-void maze_crea(SDL_Renderer* pRenderer);
+bool isExternWall(int i);
+
+bool isAllSame(std::array <int, MAZE_SIZE<int>> maze);
+
+void mazeUpdate(SDL_Renderer* pRenderer, std::array<int, MAZE_SIZE<int>> maze, std::array<SDL_Rect, MAZE_SIZE<int>> squares);
+
+void mazeCrea(SDL_Renderer* pRenderer);
 
 #endif // __MAZE_CREA_H__

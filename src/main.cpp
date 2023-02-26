@@ -22,7 +22,7 @@ int main(int argc, char* argv[])
         return EXIT_FAILURE;
     }
 
-    maze_crea(pRenderer);
+    mazeCrea(pRenderer);
 
     SDL_Event events;
     bool isOpen{ true };
