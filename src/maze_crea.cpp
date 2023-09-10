@@ -1,4 +1,4 @@
-#include "maze_crea.h"
+#include "maze_crea.hpp"
 
 static int getOwnRed(int i){
     return 3 * i;

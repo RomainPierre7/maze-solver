@@ -1,5 +1,5 @@
-#ifndef CONST_H
-#define CONST_H
+#ifndef CONST_HPP__
+#define CONST_HPP__
 
 template<typename T>
 constexpr T SIDE_SIZE{ 81 }; //needs to be odd
@@ -18,4 +18,4 @@ constexpr T HEIGHTSCREEN{ SIDE_SIZE<int> * 15 };
 
 #define COMPLEX true
 
-#endif
+#endif // CONST_HPP__

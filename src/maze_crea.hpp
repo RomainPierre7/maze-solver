@@ -1,10 +1,10 @@
-#ifndef __MAZE_CREA_H__
-#define __MAZE_CREA_H__
+#ifndef __MAZE_CREA_HPP__
+#define __MAZE_CREA_HPP__
 
 #include <SDL2/SDL.h>
 #include <array>
 #include <cstdlib>
-#include "const.h"
+#include "const.hpp"
 
 #define START SIDE_SIZE<int>
 #define END MAZE_SIZE<int> - SIDE_SIZE<int> - 1
@@ -26,4 +26,4 @@ void mazeUpdate(SDL_Renderer* pRenderer, std::array<int, MAZE_SIZE<int>> maze, s
 
 void mazeCrea(SDL_Renderer* pRenderer, std::array<int, MAZE_SIZE<int>>& maze, std::array<SDL_Rect, MAZE_SIZE<int>> squares);
 
-#endif // __MAZE_CREA_H__
+#endif // __MAZE_CREA_HPP__

@@ -3,9 +3,9 @@
 #include <cstdlib>    
 #include <time.h>
 #include <thread>
-#include "const.h"
-#include "maze_crea.h"
-#include "maze_solver.h"
+#include "const.hpp"
+#include "maze_crea.hpp"
+#include "maze_solver.hpp"
 
 void program(SDL_Window* pWindow, SDL_Renderer* pRenderer){
     std::array<int, MAZE_SIZE<int>> maze;
@@ -34,7 +34,7 @@ int main(int argc, char* argv[])
         return EXIT_FAILURE;
     }
 
-     SDL_Window* pWindow{ nullptr };
+    SDL_Window* pWindow{ nullptr };
     SDL_Renderer* pRenderer{ nullptr };
 
      if (SDL_CreateWindowAndRenderer(WIDTHSCREEN<unsigned int>, HEIGHTSCREEN<unsigned int>, SDL_WINDOW_SHOWN, &pWindow, &pRenderer) < 0)

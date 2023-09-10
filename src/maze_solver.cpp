@@ -1,4 +1,4 @@
-#include "maze_solver.h"
+#include "maze_solver.hpp"
 
 void mazeSolver(SDL_Renderer* pRenderer, std::array<int, MAZE_SIZE<int>> maze, std::array<SDL_Rect, MAZE_SIZE<int>> squares){
     std::array<int, MAZE_SIZE<int>> maze_distance;
