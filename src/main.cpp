@@ -46,7 +46,7 @@ int main(int argc, char* argv[])
 
     srand(time(NULL));
 
-    std::thread Thread(program, pWindow, pRenderer);
+    program(pWindow, pRenderer);
 
     SDL_Event events;
 
@@ -65,8 +65,6 @@ int main(int argc, char* argv[])
             }
         }
     }
-
-    Thread.join();
 
     SDL_DestroyRenderer(pRenderer);
     SDL_DestroyWindow(pWindow);
