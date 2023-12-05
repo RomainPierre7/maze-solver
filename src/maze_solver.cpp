@@ -1,6 +1,6 @@
 #include "maze_solver.hpp"
 
-void mazeSolver(SDL_Renderer* pRenderer, std::array<int, MAZE_SIZE<int>> maze, std::array<SDL_Rect, MAZE_SIZE<int>> squares){
+void mazeSolver(std::array<int, MAZE_SIZE<int>>& maze, std::array<SDL_Rect, MAZE_SIZE<int>>& squares){
     std::array<int, MAZE_SIZE<int>> maze_distance;
     for (int i = 0; i < MAZE_SIZE<int>; i++){
         maze_distance[i] = -1;
@@ -54,7 +54,6 @@ void mazeSolver(SDL_Renderer* pRenderer, std::array<int, MAZE_SIZE<int>> maze, s
             current = RIGHT(current);
         }
         maze[current] += 125;
-        mazeUpdate(pRenderer, maze, squares);
         SDL_Delay(100);
     }
     printf("Maze solved\n");

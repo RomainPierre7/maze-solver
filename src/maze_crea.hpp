@@ -20,10 +20,10 @@ bool isExternWall(int i);
 
 bool isAllSame(std::array <int, MAZE_SIZE<int>> maze);
 
-void complexMaze(SDL_Renderer* pRenderer, std::array<int, MAZE_SIZE<int>>& maze, std::array<SDL_Rect, MAZE_SIZE<int>> squares);
+void complexMaze(std::array<int, MAZE_SIZE<int>>& maze, std::array<SDL_Rect, MAZE_SIZE<int>>& squares);
 
 void mazeUpdate(SDL_Renderer* pRenderer, std::array<int, MAZE_SIZE<int>> maze, std::array<SDL_Rect, MAZE_SIZE<int>> squares);
 
-void mazeCrea(SDL_Renderer* pRenderer, std::array<int, MAZE_SIZE<int>>& maze, std::array<SDL_Rect, MAZE_SIZE<int>> squares);
+void mazeCrea(std::array<int, MAZE_SIZE<int>>& maze, std::array<SDL_Rect, MAZE_SIZE<int>>& squares);
 
 #endif // __MAZE_CREA_HPP__

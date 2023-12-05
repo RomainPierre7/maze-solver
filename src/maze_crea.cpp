@@ -1,17 +1,5 @@
 #include "maze_crea.hpp"
 
-static int getOwnRed(int i){
-    return 3 * i;
-}
-
-static int getOwnGreen(int i){
-    return 5 * i;
-}
-
-static int getOwnBlue(int i){
-    return 7 * i;
-}
-
 bool isWall(int i){
     return i == 0;
 }
@@ -31,7 +19,7 @@ bool isAllSame(std::array <int, MAZE_SIZE<int>> maze){
     return true;
 }
 
-void complexMaze(SDL_Renderer* pRenderer, std::array<int, MAZE_SIZE<int>>& maze, std::array<SDL_Rect, MAZE_SIZE<int>> squares){
+void complexMaze(std::array<int, MAZE_SIZE<int>>& maze, std::array<SDL_Rect, MAZE_SIZE<int>>& squares){
     for (int i = 0; i < SIDE_SIZE<int> / 2; i++){
         int wall = rand() % MAZE_SIZE<int>;
         while (((!isWall(maze[wall])) || (isExternWall(wall))) || (!(((wall % SIDE_SIZE<int>) % 2) && ((wall / SIDE_SIZE<int>) % 2 == 0)) && !(((wall % SIDE_SIZE<int>) % 2 == 0) && ((wall / SIDE_SIZE<int>) % 2)))){
@@ -44,28 +32,11 @@ void complexMaze(SDL_Renderer* pRenderer, std::array<int, MAZE_SIZE<int>>& maze,
             int case1 = LEFT(wall);
             maze[wall] = maze[case1];
         }
-        mazeUpdate(pRenderer, maze, squares);
         SDL_Delay(100);
     }
 }
 
-void mazeUpdate(SDL_Renderer* pRenderer, std::array<int, MAZE_SIZE<int>> maze, std::array<SDL_Rect, MAZE_SIZE<int>> squares){
-    SDL_SetRenderDrawColor(pRenderer, 255, 255, 255, 255);
-    SDL_RenderClear(pRenderer);
-
-    for (int i = 0; i < MAZE_SIZE<int>; i++){
-        SDL_SetRenderDrawColor(pRenderer, getOwnRed(maze[i]), getOwnGreen(maze[i]), getOwnBlue(maze[i]), 255);
-        SDL_RenderFillRect(pRenderer, &squares[i]);
-    }
-    SDL_SetRenderDrawColor(pRenderer, 0, 255, 0, 255);
-    SDL_RenderFillRect(pRenderer, &squares[START]);
-    SDL_SetRenderDrawColor(pRenderer, 255, 0, 0, 255);
-    SDL_RenderFillRect(pRenderer, &squares[END]);
-    SDL_RenderPresent(pRenderer);
-}
-
-void mazeCrea(SDL_Renderer* pRenderer, std::array<int, MAZE_SIZE<int>>& maze, std::array<SDL_Rect, MAZE_SIZE<int>> squares){
-    mazeUpdate(pRenderer, maze, squares);
+void mazeCrea(std::array<int, MAZE_SIZE<int>>& maze, std::array<SDL_Rect, MAZE_SIZE<int>>& squares){
 
     while (!isAllSame(maze)){
         int wall = rand() % MAZE_SIZE<int>;
@@ -97,13 +68,12 @@ void mazeCrea(SDL_Renderer* pRenderer, std::array<int, MAZE_SIZE<int>>& maze, st
                 }
             }
         }
-        mazeUpdate(pRenderer, maze, squares);
+        SDL_Delay(5);
     }
     printf("Maze created\n");
 
     if (COMPLEX){
-        complexMaze(pRenderer, maze, squares);
+        complexMaze(maze, squares);
         printf("Complex maze created\n");
-        mazeUpdate(pRenderer, maze, squares);
     }
 }
